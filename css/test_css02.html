@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+duv#head{
+   perspective:  120px;
+}
+ div#sub{
+   width: 300px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    position:absolute;
+    transform: translate(50px,50px)
+	  scale(1,1) skewX(20deg) skewY(5deg) rotateX(75deg) rotateY(50deg);
+
+   
+ }
+
+ div#a{
+ width: 300px;
+    height: 100px;
+    background-color: red;
+    border: 1px solid black;
+  float:left;
+   transition:width 2s ;
+  
+ 
+ }
+ 
+  div#a:hover{
+  width:200px;
+  height: 100px;
+  background-color: blue;
+  opacity:0.3;
+  }
+ 
+@keyframes key{
+      0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+
+div#b{
+width:200px;
+  height: 100px;
+    background-color: pink;
+    border: 1px solid black;
+  position:relative;
+ transform:translate(100px,300px);
+ 
+ animation-name:key;
+ animation-duration:5s;
+animation-iteration-count:infinite;
+}
+</style>
+</head>
+<body>
+
+<h1>The translate() Method</h1>
+<p>The translate() method moves an element from its current position:</p>
+<div id="head">
+	<div id="sub">
+		This div element is moved 50 pixels to the right, and 100 pixels down from its current position.
+		</div>
+</div>
+<br>
+<div id="a">
+   abc
+</div>
+<div id="b">
+
+</div>
+</body>
+</html>

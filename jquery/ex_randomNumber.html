@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style >
+#ask{
+display:inline-block;
+
+}
+
+body{
+text-align:center;
+}
+
+</style>
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#rand').click(function(){
+	var num1;
+	var num2;
+	var max;
+	var min;
+	var result; 
+	max = 999;
+	min = 0;
+	num1= Math.floor(Math.random()*(max-min+1)+min); ;
+	num2= Math.floor(Math.random()*(max-min+1)+min);;
+	result=num1+num2;
+	
+	var ask;
+	
+	ask = (num1.toString())+'+'+(num2.toString())+'=';
+	
+	console.log(ask);
+	
+	$('#ask').html(ask);
+	
+	$('#check').click(function(){
+var ans = $('#ans').val();
+
+if(ans == result){
+$( "#tag" ).append($('<div>')
+   .attr('style','color:green;font-weight:bold;')
+   .text("correct"))
+}else{
+  
+$( "#tag" ).append($('<div>')
+   .attr('style','color:red;font-weight:bold;')
+   .text("Wrong  /Correct answer:"+result)
+
+   
+   )
+   }
+});
+	
+	
+	
+	
+	
+	
+});
+
+
+
+
+
+});
+</script>
+</head>
+<body>
+<div class="form-horizontal">
+		<div class="panel container-fluid ">
+      	<div class="panel-heading" >
+          <h1 align="center">ex_random</h1>
+		  <hr>
+		</div>
+		<div class="panel-body ">
+         
+		 <button id="rand" >Random</button><br>
+		 
+			<center><label for="ans" id="ask" >?+?=</label ><input type="text" id="ans" ></center><br>
+			
+			 <button id="check">Check Answer</button><br>
+			
+		 <label >Result:</label><div id="tag"></div>
+		 
+		 
+		 
+		
+		</div>
+	</div>
+</div>
+</body>
+</html>

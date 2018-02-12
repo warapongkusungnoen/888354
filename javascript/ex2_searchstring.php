@@ -50,6 +50,7 @@ for(var i =0; i < str.length; i++){
 		 
 		if(re.exec(stringArray[j])!=null){
 			
+		
 			count++;
 		}
 			
@@ -103,8 +104,8 @@ for(var i =0; i < str.length; i++){
 				 <div class="blank"> </div>
 			<label>Search</label><input type="text "id="txt" ></input> <br>	
 			<div class="blank"> </div>
-		 <button id="btn" onclick="scan();" >search</button><br>
-		 <div class="blank"> </div>
+		 <button id="btn"  >search</button><br>
+		 
 		 <label>Search Result:</label>
 		 <div id="result" style="display:inline-block;"></div>
 		 

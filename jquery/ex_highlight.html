@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style >
+#txt{
+
+display:inline-block;
+
+}
+
+</style>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('#btn').click(function(){
+
+var str,key,count=0,txt;
+txt= $('#para').html().toLowerCase();
+key=$('#key').val().toLowerCase();
+
+txt= txt.split(/(\s+)/);
+var str = new Array();
+for(var i =0; i < txt.length; i++){
+    str.push(txt[i]);
+    if(i != txt.length-1){
+        str.push(" ");
+    }
+}
+
+var re = new RegExp(key, "g");
+ for(var j=0;j<str.length;j++){
+		 
+		 
+		if(re.exec(str[j])!=null){
+			
+		    
+			count++;
+			
+		}
+			
+	 }
+
+
+$("#result").text(count);
+
+var src_str = $("#para").html().toLowerCase();
+key=$('#key').val().toLowerCase();
+key= key.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+var pattern = new RegExp("("+key+")", "g");
+
+src_str = src_str.replace(pattern, "<mark>$1</mark>");
+src_str = src_str.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/,"$1</mark>$2<mark>$4");
+
+$("#para").html(src_str);
+
+
+
+
+
+});
+
+});
+</script>
+
+</head>
+<body>
+<div class="form-horizontal">
+		<div class="panel container-fluid ">
+      	<div class="panel-heading" >
+          <h1 align="center">ex_highlight</h1>
+		  <hr>
+		</div>
+		<div class="panel-body ">
+         
+		 
+		 
+			<label id="tag" for="txt">Text Input:</label><input type="text" id="key" ></input>
+			
+	<button id="btn">Highlight</button>
+			
+			<form >
+			<fieldset>
+			  <legend>The Article : Continuous Digital Health</legend>
+			<p id="para">The way we deal with our health is undergoing a major transformation, 
+			not only because mobile Internet technology has made it possible to have continuous access to personal health information, 
+			but also because breaking the trend of ever-growing healthcare costs is increasingly necessary.
+			Estimates indicate that more than 70 percent of the world population will have a smartphone by 2017. 
+			Connectivity, interoperability, sensing, and instant feedback through smartphones all provide new opportunities for gaining insights into 
+			our health behavior. Such insights are improving, and understanding what motivates people to make healthy changes throughout 
+			their lifetimes is becoming more important. Internet technology not only lets us continuously monitor an individual's physiological and psychological state, 
+			but also allows for building up a lifelong record of physical, mental, and social health.</p>
+			</fieldset>
+			</form>
+		 <label>Search Result:</label>
+		 <div id="result" style="display:inline-block;"></div>
+		 
+		 
+		
+		</div>
+	</div>
+</div>
+</body>
+</html>
